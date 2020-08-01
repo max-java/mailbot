@@ -1,13 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form method="post">
-    <textarea name="text"></textarea>
-    <input type="submit" />
-</form>
+<body class="layout-navbar-fixed sidebar-mini">
+<div class="wrapper">
+
+    <!-- Navbar -->
+
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <form method="post" enctype="multipart/form-data">
+                                    <textarea id="mytextarea" name="text" ></textarea>
+                                    <input name="file" placeholder="File"
+                                           type="file">
+                                    <button type="submit" name="save" value="true">save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+
+</div>
+<!-- /.control-sidebar -->
+
+<!-- Main Footer -->
+
+
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#mytextarea',
+        min_height: 600,
+        plugins: 'print preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+        menubar: 'file edit view insert format tools table help',
+        toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+
+    });
+</script>
 </body>
 </html>

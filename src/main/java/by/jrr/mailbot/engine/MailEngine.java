@@ -12,6 +12,9 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,6 +52,19 @@ public class MailEngine {
         helper.setSubject("Daniil Hi");
         helper.setText("<img src=\"cid:attachment.png\" /><H1>hello</h1><h3>world</h3>", true);
         helper.addInline("attachment.png", resourceFile);
+        mailSender.send(message);
+    }
+    public void sendHTMLTestEmailWithInlineImages(String text, byte[] imgFile, String fileName) throws MessagingException, IOException {
+        File tempFile = File.createTempFile("prefix", "suffix", null);
+        FileOutputStream fos = new FileOutputStream(tempFile);
+        fos.write(imgFile);
+
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+        helper.setTo("*@mail.ru");
+        helper.setSubject("Daniil Hi");
+        helper.setText(text, true);
+        helper.addInline(fileName, tempFile);
         mailSender.send(message);
     }
 

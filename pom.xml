@@ -10,7 +10,7 @@
     </parent>
     <groupId>by.jrr</groupId>
     <artifactId>mailbot</artifactId>
-    <version>0.${VERSION_NUMBER}</version>
+    <version>0.0.1</version>
     <name>mailbot</name>
     <description>Mail delivery service</description>
 
